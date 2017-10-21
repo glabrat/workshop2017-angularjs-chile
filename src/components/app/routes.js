@@ -20,14 +20,19 @@ export function routes($routeProvider, $locationProvider) {
             resolve: {
               artists: ($route, ApiService) =>
                   ApiService.getArtists($route.current.params.bandId),
-              // albums: //Implement API call to get albums
+              albums: ($route, ApiService) =>//Implement API call to get albums
+                  ApiService.getAlbums($route.current.params.bandId)
             },
         })
-        .when('/band/:bandId/album/:albumId/', {
+        .when('/band/:bandId/ALBUM/:albumId/', {
             templateUrl: '/components/app/views/band-detail.html',
-            // resolve: {
-            //   artists, albums and tracks requests in here
-            // },
+            resolve: {
+              // artists, albums and tracks requests in here
+                artists: ($route, ApiService) =>
+                    ApiService.getArtists($route.current.params.bandId),
+                tracks: ($route, ApiService) =>
+                    ApiService.getAlbum($route.current.params.bandId),
+            },
         })
         .when('/band/:bandId/album/:albumId/track/:trackId/', {
             templateUrl: '/components/app/views/band-detail.html',

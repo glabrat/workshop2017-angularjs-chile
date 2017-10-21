@@ -1,25 +1,48 @@
 <div class="band-detail-container">
-    <h1>Band Details</h1>
-    <h2>Artists</h2>
-    <!-- Show artists details here -->
-    <!-- <pre>{{$resolve.artists | json}}</pre> -->
-    <hr />
+  <h1>Band Details</h1>
+  <h2>Artists</h2>
+  <!-- Show artists details here -->
+  <hr>
+  <div class="row">
 
-    <h2>Albums</h2>
-    <!-- Show Albums details here -->
-    <!-- <pre>{{$resolve.albums | json}}</pre> -->
-    <hr />
+    <div class="col-xs-6 col-md-4"
+      ng-repeat="artist in $resolve.artists">
+      <img src="{{ artist.url }}"
+        alt="{{ artist.firstName + ' ' + artist.lastName }}"
+        class="thumbnail img-responsive" style="max-height: 200px;">
 
-    <div class="tracks"
-        ng-if="$resolve.tracks">
-        <h2>Tracks in {{$resolve.selectedAlbum.name}}</h2>
-        <!-- Show Tracks from selected album -->
-
-        <div ng-if="$resolve.comments"
-            class="comments">
-            <hr />
-            <!-- Implement comments component -->
-        </div>
-        <!-- <pre>{{$resolve.tracks | json}}</pre> -->
+      <p>name</p>{{ artist.firstName + ' ' + artist.lastName }}
+      <p>birthday</p>{{ artist.birthdate }}
+      <p>instrument</p>{{ artist.instrument }}
     </div>
+  </div>
+  <h2>Albums</h2>
+  <!-- Show Albums details here -->
+   <!--<pre>{{$resolve.albums | json}}</pre>-->
+    <div class="col-xs-6 col-md-4"
+         ng-repeat="album in $resolve.albums">
+        <a href="./{{album.docType}}/{{album.id}}/">
+        <img src="{{album.url}}" alt="" class="img-responsive thumbnail" style="max-height: 200px;">
+        <span>{{ album.name }}</span>
+        Release date
+        <span>{{ album.releaseDate }}</span>
+        </a>
+    </div>
+
+  <hr>
+
+
+  <div class="tracks"
+    ng-if="$resolve.tracks">
+    <h2>Tracks in {{$resolve.selectedAlbum.name}}</h2>
+    <!-- Show Tracks from selected album -->
+
+    <div ng-if="$resolve.comments"
+      class="comments">
+      <hr>
+
+      <!-- Implement comments component -->
+    </div>
+     <pre>{{$resolve.tracks | json}}</pre>
+  </div>
 </div>
