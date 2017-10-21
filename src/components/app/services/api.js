@@ -16,12 +16,21 @@ export class ApiService {
             ]
         }
 
-        return response;
+        return response.data;
     }
 
     //getBand(bandId)
 
-    // getArtists(bandId)
+    getArtists(bandId) {
+        const response = {
+            artists: [
+                { id: 1, name: 'Pescado Rabioso'},
+                { id: 2, name: 'Spinetta jade'}
+            ]
+        }
+
+        return response.artists;
+    }
 
     // getAlbums(bandId)
 
