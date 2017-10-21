@@ -6,17 +6,17 @@ export class ApiService {
     }
 
     getBands(){
-        // return this.http.get(`${this.url}/bands`)
-        //     .then(response => response.data);
+        return this.http.get(`${this.url}/bands`)
+            .then(response => response.data);
 
-        const response = {
-            data: [
-                { id: 1, name: 'The Beatles', founded: '1990-05-10', ended: '2016-05-10'},
-                { id: 2, name: 'Spinetta jade', founded: '1990-05-10', ended: '2016-05-10'},
-            ]
-        }
-
-        return response.data;
+        // const response = {
+        //     data: [
+        //         { id: 1, name: 'The Beatles', founded: '1990-05-10', ended: '2016-05-10'},
+        //         { id: 2, name: 'Spinetta jade', founded: '1990-05-10', ended: '2016-05-10'},
+        //     ]
+        // }
+        //
+        // return response.data;
     }
 
     //getBand(bandId)
