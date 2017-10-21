@@ -4,6 +4,11 @@ export class TableListController {
     constructor ($attrs) {
         this.columns = $attrs.columns
             .split(/\s*,\s*/).map(item => item.split(/\s*:\s*/));
+
+        this.data = [
+                { id: 1, name: 'Pescado Rabioso'},
+                { id: 2, name: 'Spinetta jade'}
+            ]
     }
 }
 

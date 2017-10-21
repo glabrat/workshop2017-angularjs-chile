@@ -6,8 +6,17 @@ export class ApiService {
     }
 
     getBands(){
-        return this.http.get(`${this.url}/bands`)
-            .then(response => response.data);
+        // return this.http.get(`${this.url}/bands`)
+        //     .then(response => response.data);
+
+        const response = {
+            data: [
+                { id: 1, name: 'Pescado Rabioso'},
+                { id: 2, name: 'Spinetta jade'}
+            ]
+        }
+
+        return response;
     }
 
     //getBand(bandId)
@@ -22,6 +31,6 @@ export class ApiService {
 
     // getCommentsForTrack(trackId)
 
-    // postCommentForTrack(postData) 
+    // postCommentForTrack(postData)
 
 }
